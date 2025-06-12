@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Main({ fullNav }) {
   const options = [
@@ -87,7 +88,7 @@ function Main({ fullNav }) {
         {videoData.map((video) => (
           <div key={video.id} className="text-white">
             {/* Thumbnail */}
-            <div className="relative w-full h-48">
+            <Link to={'/watch/1'} className="relative w-full h-48">
               <img
                 src={video.thumbnail}
                 alt="Video Thumbnail"
@@ -97,7 +98,7 @@ function Main({ fullNav }) {
               <div className="absolute bottom-1 right-1 bg-black bg-opacity-70 px-2 py-0.5 text-xs rounded">
                 {video.duration}
               </div>
-            </div>
+            </Link>
 
             {/* Details */}
             <div className="flex mt-3 gap-3">

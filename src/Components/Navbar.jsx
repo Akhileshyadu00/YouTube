@@ -21,10 +21,7 @@ function Navbar({ setSideNavbarfunc, sideNavbar }) {
           <IoMenu className="text-2xl hover:text-gray-400 transition-colors" title="Toggle sidebar" />
           <Link to="/" className="font-extrabold text-xl flex items-center gap-1">
             <IoLogoYoutube className="text-red-500 text-3xl" />
-            <span className="text-white">Y</span>
-            <span className="text-red-500">o</span>u
-            <span className="text-white">T</span>
-            <span className="text-red-500">u</span>be
+            <span>YouTube</span>
           </Link>
         </div>
 
