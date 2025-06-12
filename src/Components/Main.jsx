@@ -36,18 +36,37 @@ function Main({ fullNav }) {
       views: "982K",
       uploaded: "1 week ago",
     },
-    // Add more video objects as needed
+    {
+      id: 3,
+      thumbnail: "https://source.unsplash.com/random/400x300?development",
+      duration: "7:45",
+      avatar: "https://via.placeholder.com/40",
+      title: "Frontend Dev Tools You Should Know",
+      channel: "DevSphere",
+      views: "605K",
+      uploaded: "3 days ago",
+    },
+    {
+      id: 4,
+      thumbnail: "https://source.unsplash.com/random/400x300?javascript",
+      duration: "9:10",
+      avatar: "https://via.placeholder.com/40",
+      title: "Mastering JavaScript in 20 Minutes",
+      channel: "CodeHub",
+      views: "1.5M",
+      uploaded: "5 days ago",
+    },
   ];
 
   return (
     <div className="flex flex-col overflow-x-hidden w-full bg-black">
-      {/* Fixed filter bar */}
+      {/* Filter Bar */}
       <div
         className={`fixed top-16 ${
           fullNav ? "left-60" : "left-0"
-        } right-0 z-10 bg-gray-800 text-white px-4 py-2 overflow-x-auto whitespace-nowrap shadow`}
+        } right-0 z-10 bg-gray-800 text-white px-4 py-2 overflow-x-auto whitespace-nowrap shadow scrollbar-hide`}
       >
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 scroll-smooth">
           {options.map((option, index) => (
             <button
               key={index}
@@ -59,36 +78,34 @@ function Main({ fullNav }) {
         </div>
       </div>
 
-      {/* Main content below filter bar */}
+      {/* Video Grid */}
       <div
         className={`mt-24 p-4 grid gap-6 ${
-          fullNav ? "ml-60 grid-cols-3" : "ml-16 grid-cols-4"
-        }`}
+          fullNav ? "ml-60 lg:grid-cols-3" : "ml-16 lg:grid-cols-4"
+        } grid-cols-1 sm:grid-cols-2 md:grid-cols-3 `}
       >
         {videoData.map((video) => (
           <div key={video.id} className="text-white">
-            {/* Video Thumbnail */}
+            {/* Thumbnail */}
             <div className="relative w-full h-48">
               <img
                 src={video.thumbnail}
                 alt="Video Thumbnail"
                 className="w-full h-full object-cover rounded-lg"
+                onError={(e) => (e.target.src = "/fallback-thumbnail.jpg")}
               />
               <div className="absolute bottom-1 right-1 bg-black bg-opacity-70 px-2 py-0.5 text-xs rounded">
                 {video.duration}
               </div>
             </div>
 
-            {/* Video Details */}
+            {/* Details */}
             <div className="flex mt-3 gap-3">
-              {/* Channel Avatar */}
               <img
                 src={video.avatar}
                 alt="Channel Avatar"
                 className="w-10 h-10 rounded-full object-cover"
               />
-
-              {/* Title and Metadata */}
               <div className="flex flex-col">
                 <h2 className="font-semibold text-sm line-clamp-2">
                   {video.title}
