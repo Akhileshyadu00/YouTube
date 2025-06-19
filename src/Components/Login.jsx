@@ -49,7 +49,7 @@ function Login() {
 
             <Link to={'/register'}>
             <button
-              //onClick={handleLogin}
+              onClick={handleLogin}
               className="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full font-semibold transition"
             >
               Signup
